@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+import org.json.simple.JSONObject;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		JSONObject obj = new JSONObject();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Nhap id sach: ");
+		String bId = scanner.next();
+		obj.put("book_id", bId);
+		
+		System.out.print("Nhap gia sach: ");
+		int cost = scanner.nextInt();
+		obj.put("Cost", cost);
+	}
+	
+	
+	
+}

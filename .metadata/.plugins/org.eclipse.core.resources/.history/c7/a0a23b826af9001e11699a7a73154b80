@@ -1,0 +1,16 @@
+import org.json.simple.JSONObject;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		JSONObject obj = new JSONObject();
+		
+		obj.put("book_id", "A1");
+		
+	}
+	
+	
+	
+}

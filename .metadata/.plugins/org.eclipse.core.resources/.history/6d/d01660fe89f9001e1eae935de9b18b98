@@ -1,0 +1,129 @@
+package Wbuider;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Scanner;
+import java.awt.event.ActionEvent;
+
+public class Student extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtnhap;
+	private JTextArea txtketqua;
+	private JFileChooser fileChoose;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Student frame = new Student();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Student() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 523);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nh\u1EADp chu\u1ED7i JSON");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel.setBounds(22, 31, 302, 43);
+		contentPane.add(lblNewLabel);
+		
+		txtnhap = new JTextField();
+		txtnhap.setBounds(22, 97, 137, 19);
+		contentPane.add(txtnhap);
+		txtnhap.setColumns(10);
+		
+		JTextArea txtketqua = new JTextArea("Ket qua");
+		txtketqua.setBounds(25, 217, 302, 220);
+		txtketqua.setLineWrap(true);
+		contentPane.add(txtketqua);
+		
+		JButton btnChon = new JButton("Ch\u1ECDn File");
+		btnChon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		
+		btnChon.setBounds(176, 96, 85, 21);
+		contentPane.add(btnChon);
+		
+		JButton btnParse = new JButton("Ph\u00E2n T\u00EDch");
+		btnParse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					JSONObject obj = new JSONObject();
+					JSONArray arrObj = new JSONArray();
+					JSONParser par = new JSONParser();
+					fileChoose = new JFileChooser();
+					FileNameExtensionFilter filter = new FileNameExtensionFilter("File json", "json");
+					fileChoose.setFileFilter(filter);
+					int reDialog = fileChoose.showOpenDialog(btnChon);
+					if(reDialog == JFileChooser.APPROVE_OPTION) {
+						File file = fileChoose.getSelectedFile();// doc 1 file
+						txtnhap.setText(file.getName());//lay ten file dat vao txtfile
+					}
+//					Scanner scanner = new Scanner(file);
+					
+					String jsonString = txtnhap.getText().trim();
+					arrObj = (JSONArray) par.parse(jsonString);
+					for(int i = 0; i<arrObj.size(); i++) {
+						obj = (JSONObject) arrObj.get(i);
+						txtketqua.append("Student ID: " + obj.get("student_id"));
+						txtketqua.append("\nFirst name: " + obj.get("fname"));
+						txtketqua.append("\nLast name: " + obj.get("lname"));
+						txtketqua.append("\nDate of birth: " + obj.get("dob"));
+						txtketqua.append("\n");
+					}
+				}catch(Exception e2) {
+					
+				}
+			}
+		});
+		
+		
+		btnParse.setBounds(10, 141, 85, 21);
+		contentPane.add(btnParse);
+		
+		
+		
+	}
+}
+		
+		
+		

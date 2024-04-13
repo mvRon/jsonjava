@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		JSONObject obj = new JSONObject();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Nhap id sach: ");
+		String bId = scanner.next();
+		obj.put("book_id", bId);
+		
+		System.out.print("Nhap gia sach: ");
+		int cost = scanner.nextInt();
+		obj.put("Cost", cost);
+		
+		System.out.println(obj.toJSONString());
+		
+		
+		
+		JSONParser par = new JSONParser();
+		String jsonString = obj.toJSONString();
+		try {
+			obj = (JSONObject) par.parse(jsonString);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Mã sách là: " + obj.get("book_id"));
+		System.out.println("giá sách là: " + obj.get("cost"));
+		
+	}
+	
+	
+	
+}

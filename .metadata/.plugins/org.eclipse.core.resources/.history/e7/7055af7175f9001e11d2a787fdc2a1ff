@@ -1,0 +1,90 @@
+package Wbuider;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Parse extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtnhap;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Parse frame = new Parse();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Parse() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Nh\u1EADp chu\u1ED7i JSON");
+		lblNewLabel.setBounds(10, 25, 302, 29);
+		contentPane.add(lblNewLabel);
+		
+		txtnhap = new JTextField();
+		txtnhap.setBounds(10, 79, 302, 19);
+		contentPane.add(txtnhap);
+		txtnhap.setColumns(10);
+		
+		JButton btnParse = new JButton("Parse");
+		btnParse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					JSONObject obj = new JSONObject();
+					JSONParser par = new JSONParser();
+					
+					String jsonString = txtnhap.getText().trim();
+					obj = (JSONObject) par.parse(jsonString);
+				}catch(Exception e2) {
+					
+				}
+			}
+		});
+		btnParse.setBounds(10, 131, 85, 21);
+		contentPane.add(btnParse);
+		
+		JLabel lblid = new JLabel("M\u00E3 s\u00E1ch");
+		lblid.setBounds(10, 177, 157, 19);
+		contentPane.add(lblid);
+		
+		JLabel lblname = new JLabel("T\u00EAn s\u00E1ch");
+		lblname.setBounds(10, 206, 157, 19);
+		contentPane.add(lblname);
+		
+		JLabel lblprice = new JLabel("Gi\u00E1 ti\u1EC1n");
+		lblprice.setBounds(10, 234, 157, 19);
+		contentPane.add(lblprice);
+	}
+
+}
