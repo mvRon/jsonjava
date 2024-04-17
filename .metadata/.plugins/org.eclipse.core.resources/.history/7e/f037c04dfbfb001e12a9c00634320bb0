@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			Scanner scanner = new Scanner(System.in);
+			JSONObject obj = new JSONObject();
+			JSONArray arrObj = new JSONArray();
+			JSONParser par = new JSONParser();
+			
+			System.out.print("Nhap chuoi JSON: ");
+			String jsonString = scanner.nextLine();
+		
+			arrObj = (JSONArray) par.parse(jsonString);
+			
+			for(int i = 0; i<arrObj.size(); i++) {
+				obj = (JSONObject) arrObj.get(i);
+				int idNhanVien = (int) obj.get("id_nhanvien");
+				if(idNhanVien == (int) 4) {
+					System.out.println(obj);
+					System.out.println("ID Nhan vien: " + obj.get("id_nhanvien"));
+					System.out.println("Ho va ten: " + obj.get("fullname"));
+					System.out.println("DoB: " + obj.get("DoB"));
+					System.out.println("Chuc vu: " + obj.get("position"));
+					System.out.println("\n");
+				}
+				else {
+					System.out.println("Khong co du lieu tren!");
+					break;
+				}
+			}
+		}catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
+}

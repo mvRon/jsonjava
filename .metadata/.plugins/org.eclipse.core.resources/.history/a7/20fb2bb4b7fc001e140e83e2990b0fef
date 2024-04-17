@@ -1,0 +1,10 @@
+package App;
+
+public class Products {
+	
+	private String productName;
+	private String dateReceive;
+	private double productPrice;
+	
+		
+}

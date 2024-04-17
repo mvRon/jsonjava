@@ -1,0 +1,50 @@
+package App;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		ArrayList<Products> listProduct = new ArrayList<Products>();
+		while(true) {
+			System.out.println("=====Management Product Program=====");
+			System.out.println("1. Add new Product");
+			System.out.println("2. Detele Product");
+			System.out.println("3. Check Product");
+			System.out.println("4. Exit");
+			System.out.println("====================================");
+			System.out.print("Enter your choice: ");
+			int choice = scanner.nextInt();
+			if(choice == 1) {
+				Products product = new Products();
+				product.InputProduct();
+				listProduct.add(product);
+			}else if(choice == 2) {
+				System.out.print("Input Product's ID you want to delete: ");
+				int deleteID = scanner.nextInt();
+				for(int i = 0; i<listProduct.size(); i++) {
+					Products products = listProduct.get(i);
+					if(products.productId == deleteID) {
+						listProduct.remove(i);
+						System.out.println("Product Deleted!");
+						break;
+					}
+				}
+				
+				
+			}else if(choice == 3) {
+				for(int i = 0; i<listProduct.size(); i++) {
+					System.out.println("==========");
+					Products products = listProduct.get(i);
+					products.OutputProduct();	
+				}
+			}else {
+				System.out.println("See you later!");
+				break;
+			}
+		}		
+	}
+}

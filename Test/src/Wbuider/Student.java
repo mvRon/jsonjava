@@ -110,27 +110,20 @@ public class Student extends JFrame {
 //						System.out.println(arrObj.size());
 						for(int i = 0; i<arrObj.size(); i++) {
 							obj = (JSONObject) arrObj.get(i);
-							txtketqua.append("\nStudent ID: " + obj.get("student_id"));
-							txtketqua.append("\nFirst name: " + obj.get("fname"));
-							txtketqua.append("\nLast name: " + obj.get("lname"));
-							txtketqua.append("\nDate of birth: " + obj.get("dob"));
+							txtketqua.append("\nStudent ID: " + obj.get("id_nhanvien"));
+							txtketqua.append("\nFirst name: " + obj.get("fullname"));
+							txtketqua.append("\nLast name: " + obj.get("DoB"));
+							txtketqua.append("\nDate of birth: " + obj.get("position"));
 							txtketqua.append("\n");
-					}
-					
-					
-					
-				
+					}		
 				}catch(Exception e2) {
 					
 				}
 			}
 		});
 		
-		
 		btnParse.setBounds(10, 141, 85, 21);
 		contentPane.add(btnParse);
-		
-		
 		
 	}
 }

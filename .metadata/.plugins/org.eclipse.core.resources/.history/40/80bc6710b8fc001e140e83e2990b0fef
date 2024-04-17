@@ -1,0 +1,22 @@
+package App;
+
+import java.util.Scanner;
+
+public class Products {
+	
+	private int productId;
+	private String productName;
+	private String dateReceive;
+	private double productPrice;
+	
+	public Products(){
+		
+	}
+	
+	public static void InputProduct() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Input Product Name: ");
+		productId = scanner.nextInt();
+	}
+		
+}

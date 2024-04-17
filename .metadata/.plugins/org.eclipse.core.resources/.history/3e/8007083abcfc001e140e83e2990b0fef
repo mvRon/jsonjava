@@ -1,0 +1,29 @@
+package App;
+
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		// Check Class
+//		Products product = new Products();
+//		
+//		product.InputProduct();
+//		System.out.println("===Output Method===");
+//		product.OutputProduct();
+		
+		System.out.println("=====Management Product Program=====");
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter your choice: ");
+		int choice = scanner.nextInt();
+		
+		
+		
+	}
+
+}

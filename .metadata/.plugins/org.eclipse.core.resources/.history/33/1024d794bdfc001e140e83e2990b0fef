@@ -1,0 +1,50 @@
+package App;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		// Check Class
+//		Products product = new Products();
+//		
+//		product.InputProduct();
+//		System.out.println("===Output Method===");
+//		product.OutputProduct();
+		
+		System.out.println("=====Management Product Program=====");
+		System.out.println("1. Add new Product");
+		System.out.println("2. Detele Product");
+		System.out.println("3. Check Product");
+		System.out.println("4. Exit");
+		System.out.println("====================================");
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter your choice: ");
+		int choice = scanner.nextInt();
+		
+		switch(choice) {
+			case 1:
+				ArrayList<> listProduct = new ArrayList<>;
+				break;
+				
+			case 2:
+				break;
+				
+			case 3:
+				break;
+				
+			case 4:
+				break;
+		}
+		
+		
+		
+	}
+
+}
